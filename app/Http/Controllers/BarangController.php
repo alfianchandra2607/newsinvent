@@ -83,10 +83,27 @@ class BarangController extends Controller
             'seri' => 'required|string|max:50',
             'spesifikasi' => 'nullable|string',
             'kategori_id' => 'required|exists:kategori,id',
+            'foto'    => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
         // Update data barang
         $barang = Barang::findOrFail($id);
+
+        if ($request->hasFile('foto')) {
+            $foto = $request->file('foto');
+            $foto->storeAs('public/foto', $foto->hashName());
+            Storage::delete('public/foto/'.$barang->foto);
+
+            $barang->update([
+                'merk' => $request->merk,
+                'seri' => $request->seri,
+                'spesifikasi' => $request->spesifikasi,
+                'kategori_id' => $request->kategori_id,
+                'foto'=> $foto->hashName(),
+            ]);
+
+        }
+
         $barang->update([
             'merk' => $request->merk,
             'seri' => $request->seri,

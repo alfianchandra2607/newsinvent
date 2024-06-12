@@ -10,8 +10,8 @@
                             @csrf
 
                             <div class="form-group">
-                                <label class="font-weight-bold">KATEGORI</label>
-                                <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="deskripsi" value="{{ old('kategori') }}" placeholder="Masukkan Nama Kategori">
+                                <label class="font-weight-bold">DESKRIPSI</label>
+                                <input type="text" class="form-control @error('deskripsi') is-invalid @enderror" name="deskripsi" value="{{ old('deskripsi') }}" placeholder="Masukkan Nama Kategori">
                             
                                 <!-- error message untuk kategori -->
                                 @error('kategori')
@@ -29,8 +29,8 @@
                             </div>
 
                             <div class="form-group">
-                                <label class="font-weight-bold" for="jenis">JENIS</label>
-                                <select class="form-select @error('jenis') is-invalid @enderror" name="kategori" id="kategori" aria-label="Default select example">
+                                <label class="font-weight-bold" for="kategori">KATEGORI</label>
+                                <select class="form-select @error('kategori') is-invalid @enderror" name="kategori" id="kategori" aria-label="Default select example">
                                     <option value="blank" selected disabled>Pilih Jenis</option>
                                     <option value="M">M</option>
                                     <option value="A">Alat</option>

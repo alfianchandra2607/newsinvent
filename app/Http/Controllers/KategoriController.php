@@ -42,7 +42,7 @@ class KategoriController extends Controller
             'kategori' => 'required|in:M,A,BHP,BTHP',
         ]);
 
-        $existingKategori = Kategori::where('kategori', $request->kategori)->first();
+        $existingKategori = Kategori::where('deskripsi', $request->deskripsi)->first();
 
         if ($existingKategori) {
             // Jika kategori dengan nama yang sama sudah ada, kembalikan error
