@@ -43,7 +43,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item active">
-                <a class="nav-link" href="">
+                <a class="nav-link" href="dashboard">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -67,7 +67,7 @@
         <div class="bg-white py-2 collapse-inner rounded">
             <h6 class="collapse-header">Custom Components:</h6>
             <!-- <a class="collapse-item" href="">Siswa</a> -->
-            <a class="collapse-item" href="">Barang</a>
+            <a class="collapse-item" href="{{ route('barang.index') }}">Barang</a>
             <a class="collapse-item" href="{{ route('kategori.index') }}">Kategori</a>
             <!-- <a class="collapse-item" href="">Barang Masuk</a> -->
             <!-- <a class="collapse-item" href=">Barang Keluar</a> -->
@@ -88,8 +88,8 @@
             <!-- <a class="collapse-item" href="">Siswa</a> -->
             <!-- <a class="collapse-item" href="">Barang</a> -->
             <!-- <a class="collapse-item" href="">Kategori</a> -->
-            <a class="collapse-item" href="">Barang Masuk</a>
-            <a class="collapse-item" href="">Barang Keluar</a>
+            <a class="collapse-item" href="{{ route('barangmasuk.index') }}">Barang Masuk</a>
+            <a class="collapse-item" href="{{ route('barangkeluar.index') }}">Barang Keluar</a>
         </div>
     </div>
 </li>

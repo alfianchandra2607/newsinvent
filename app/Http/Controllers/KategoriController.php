@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Kategori;
+use App\Models\Vkategori;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\DB;
 
@@ -17,7 +18,7 @@ class KategoriController extends Controller
 //haiii        
         $search = $request->query('search');
         if ($search) {
-            $kategori = Kategori::where('deskripsi', 'like', "%{$search}%")
+            $kategori = Vkategori::where('deskripsi', 'like', "%{$search}%")
             ->orWhere('kategori', 'like', "%{$search}%")
             ->get();
         
