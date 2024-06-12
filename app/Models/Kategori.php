@@ -25,6 +25,4 @@ class Kategori extends Model
         ->select('vkat.id', 'deskripsi','kat')
         ->get();
     }
-
-    
 }
