@@ -382,7 +382,7 @@
                 <div class="modal-footer">
                     <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
 
-                    <form action="" method="POST" role="search">
+                    <form action="{{ route('logout') }}" method="POST" role="search">
                             @csrf
                             @method('DELETE')
                             <button class="btn btn-danger" type="submit">Logout</button>

@@ -120,8 +120,8 @@ class KategoriController extends Controller
             return response()->json(['status'=>"kategori tidak ditemukan"]);
         }
 
-         $kategori->kategori= $request->deskripsi;
-         $kategori->jenis = $request->kategori;
+         $kategori->deskripsi= $request->deskripsi;
+         $kategori->kategori = $request->kategori;
          $kategori->save();
 
         return response()->json(["status"=>"kategori berhasil diubah"]);
@@ -136,14 +136,14 @@ class KategoriController extends Controller
     // function untuk create api
     function createAPIKategori(Request $request){
         $request->validate([
-            'kategori' => 'required|string|max:100',
-            'jenis' => 'required|in:M,A,BHP,BTHP',
+            'deskripsi' => 'required|string|max:100',
+            'kategori' => 'required|in:M,A,BHP,BTHP',
         ]);
 
         // Simpan data kategori
         $kat = Kategori::create([
+            'deskripsi' => $request->deskripsi,
             'kategori' => $request->kategori,
-            'jenis' => $request->jenis,
         ]);
 
         return response()->json(["status"=>"data berhasil dibuat"]);
@@ -156,6 +156,18 @@ class KategoriController extends Controller
         $del_kategori -> delete();
 
         return response()->json(["status"=>"data berhasil dihapus"]);
+    }
+
+    
+    // function untuk membuat index api per id
+    function showbyidAPIKategori(Request $request, $kategori_id){
+        $kategori = Kategori::find($kategori_id);
+
+        if (!$kategori) {
+            return response()->json(['message' => 'Kategori not found'], 404);
+        }
+
+        return response()->json($kategori);
     }
 
 
